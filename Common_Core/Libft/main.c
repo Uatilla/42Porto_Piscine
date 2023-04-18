@@ -130,6 +130,14 @@ int main()
     string = "Uatilla Viana Almeida";
     printf("strlen: %ld\n", strlen(string));
     printf("ft_strlen: %ld\n", ft_strlen(string));
+    printf("-----------------------------------\n");
+     //ft_toupper
+    char    lower = 'a';
+    char    lower1 = 'a';
+    lower = ft_toupper(lower);
+    lower1 = toupper(lower1);
+    printf("ft_toupper: %c\n", lower);
+    printf("toupper: %c\n", lower1);
     printf("-----------------------------------\n");  
     return 0;
 }

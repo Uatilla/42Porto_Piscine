@@ -46,6 +46,9 @@
     //ft_isprint(): Printing character test (space character inclusive).
     int	ft_isprint(int c);
 
+    //ft_toupper(): Changes one character to uppercase if it's lowercase else returns the character without changes.
+    int	ft_toupper(int c);
+
     //ft_strlen(): Measure the size of a string without the NULL character ('\0').
     size_t	ft_strlen(const char *s);
 
