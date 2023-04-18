@@ -45,10 +45,13 @@
 
     //ft_isprint(): Printing character test (space character inclusive).
     int	ft_isprint(int c);
-
-    //ft_toupper(): Changes one character to uppercase if it's lowercase else returns the character without changes.
+    
+	//ft_toupper(): Changes one character to uppercase if it's lowercase else returns the character without changes.
     int	ft_toupper(int c);
 
+    //ft_tolower(): Changes one character to lowercase if it's uppercase else returns the character without changes.
+    int	ft_tolower(int c);
+    
     //ft_strlen(): Measure the size of a string without the NULL character ('\0').
     size_t	ft_strlen(const char *s);
 
@@ -57,5 +60,11 @@
 
     //ft_strlcat(): Concatenate a string src to a dest and guarantee the null terminator, return the size of src + dest.
     size_t	ft_strlcat(char *dst, const char *src, size_t size);
+
+    //ft_strchr(): Returns the position in the memory that the first occurrence of a character happened."
+    char    *ft_strchr(const char *s, int c);
+
+    //ft_strrchr(): Returns the position in the memory that the last occurrence of a character happened."
+    char    *ft_strrchr(const char *s, int c);
 
 #endif

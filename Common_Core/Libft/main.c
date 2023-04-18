@@ -131,13 +131,33 @@ int main()
     printf("strlen: %ld\n", strlen(string));
     printf("ft_strlen: %ld\n", ft_strlen(string));
     printf("-----------------------------------\n");
-     //ft_toupper
+    //ft_toupper
     char    lower = 'a';
     char    lower1 = 'a';
     lower = ft_toupper(lower);
     lower1 = toupper(lower1);
     printf("ft_toupper: %c\n", lower);
     printf("toupper: %c\n", lower1);
-    printf("-----------------------------------\n");  
+    printf("-----------------------------------\n");
+    //ft_tolower
+    char    upper = 'A';
+    char    upper1 = 'A';
+    upper = ft_tolower(upper);
+    upper1 = tolower(upper1);
+    printf("ft_tolower: %c\n", upper);
+    printf("tolower: %c\n", upper1);
+    printf("-----------------------------------\n");
+    //ft_strchr
+    char    stri[6] = "Abcde";
+    c = 'b';
+    printf("ft_strchr: %p\n",ft_strchr(stri, c));
+    printf("strchr: %p\n", strchr(stri, c));
+    printf("-----------------------------------\n");
+    //ft_strrchr
+    char    strin[6] = "AbcsA";
+    c = 'A';
+    printf("ft_strrchr: %p\n",ft_strrchr(strin, c));
+    printf("strrchr: %p\n", strrchr(strin, c));
+    printf("-----------------------------------\n");
     return 0;
 }
