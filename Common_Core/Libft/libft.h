@@ -51,6 +51,9 @@
 
     //ft_tolower(): Changes one character to lowercase if it's uppercase else returns the character without changes.
     int	ft_tolower(int c);
+
+    //ft_atoi(): Converts the initial portion of the string in int.
+    int ft_atoi(const char *nptr);
     
     //ft_strlen(): Measure the size of a string without the NULL character ('\0').
     size_t	ft_strlen(const char *s);

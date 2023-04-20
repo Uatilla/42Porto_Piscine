@@ -164,5 +164,10 @@ int main()
 	char	little_strnstr [20] = "4";
 	printf("ft_strnstr: %s\n", ft_strnstr(big_strnstr, little_strnstr, 20));
     printf("-----------------------------------\n");
+    //ft_atoi
+    char    *string_atoi = "    +123 abc";
+    printf("atoi: %d\n", atoi(string_atoi));
+    printf("ft_atoi: %d\n", ft_atoi(string_atoi));
+    printf("-----------------------------------\n");
     return 0;
 }
