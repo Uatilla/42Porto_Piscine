@@ -159,5 +159,10 @@ int main()
     printf("ft_strrchr: %p\n",ft_strrchr(strin, c));
     printf("strrchr: %p\n", strrchr(strin, c));
     printf("-----------------------------------\n");
+    //ft_strnstr
+    char	big_strnstr [20] = "Hello 42 Porto";
+	char	little_strnstr [20] = "4";
+	printf("ft_strnstr: %s\n", ft_strnstr(big_strnstr, little_strnstr, 20));
+    printf("-----------------------------------\n");
     return 0;
 }
