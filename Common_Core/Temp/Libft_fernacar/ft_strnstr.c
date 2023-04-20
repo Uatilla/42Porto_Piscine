@@ -11,6 +11,19 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+
+size_t	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -30,4 +43,11 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		i++;
 	}
 	return (NULL);
+}
+int	main()
+{
+	char str[20] = "Hello 42 Porto";
+	char check[20] = "4";
+	printf("%s\n", ft_strnstr(str, check, 20));
+	return (0);
 }
