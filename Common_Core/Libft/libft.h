@@ -67,4 +67,7 @@
     //ft_strrchr(): Returns the position in the memory that the last occurrence of a character happened."
     char    *ft_strrchr(const char *s, int c);
 
+    //ft_strnstr(): Returns the position of the first occurrence of a string, if it didn't find it returns NULL, if the little string isn't find it returns the big string. 
+    char	*ft_strnstr(const char *big, const char *little, size_t len);
+
 #endif

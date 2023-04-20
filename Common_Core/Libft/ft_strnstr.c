@@ -10,35 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
+	if (*little == '\0')
+		return ((char *)big);
 	i = 0;
-	j = 0;
-	if (to_find [0] == '\0')
-		return (str);
-	while (str[i] != '\0')
+	while (big[i] != '\0' && i < len)
 	{
-		while (str[i + j] == to_find[j] && (str[i + j] != '\0'))
-			j++;
-		if (to_find[j] == '\0')
-			return (&str[i]);
-		i++;
 		j = 0;
+		while (i + j < len && big[i + j] == little[j] && (big[i + j] != '\0'))
+			j++;
+		if (little[j] == '\0')
+			return ((char *)&(big[i]));
+		i++;
 	}
-	return (0);
+	return (NULL);
 }
-/*
-int main()
-{
-	char	str[20] = "Hello 42 Porto";
-	char	check [20] = "2";
-   	printf("%s\n", strstr(str,check));
-	printf("%s\n", ft_strstr(str, check));
-	return (0);
-}*/
