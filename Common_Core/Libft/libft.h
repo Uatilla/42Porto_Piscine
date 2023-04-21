@@ -34,6 +34,9 @@
     //*ft_calloc(): Alocate some memory of size bytes and sets as 0.
     void    *ft_calloc(size_t nmemb, size_t size);
 
+    //*ft_strdup(): Make some memory with malloc() and duplicates a string to there.
+    void	*ft_strdup(const char *s);
+
     //ft_isalnum(): Alphanumeric character test.
     int ft_isalnum(int c);
 

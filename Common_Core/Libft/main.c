@@ -180,5 +180,15 @@ int main()
     }
     printf("\n");
     printf("-----------------------------------\n");
+    //ft_strdup
+    char    *string_strdup = "Ola";
+    char    *string_strdup2 = "Ola";
+    char    *ptr_string;
+    char    *ptr_string2;
+    ptr_string = strdup(string_strdup);
+    ptr_string2 = ft_strdup(string_strdup2);
+    printf("strdup: %s [%p]\n", ptr_string, &ptr_string);
+    printf("ft_strdup: %s [%p]\n", ptr_string2, &ptr_string2);
+    printf("-----------------------------------\n");
     return 0;
 }
