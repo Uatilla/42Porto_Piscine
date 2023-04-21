@@ -169,5 +169,16 @@ int main()
     printf("atoi: %d\n", atoi(string_atoi));
     printf("ft_atoi: %d\n", ft_atoi(string_atoi));
     printf("-----------------------------------\n");
+    //ft_calloc
+    int *ptr2c = 0;
+    ptr2c = (int*) ft_calloc(5, sizeof(int));
+    int i = 0;
+    printf("ft_calloc: ");
+    while(i < 5) {
+        printf("%d", *(ptr2c + i));
+        i++;
+    }
+    printf("\n");
+    printf("-----------------------------------\n");
     return 0;
 }

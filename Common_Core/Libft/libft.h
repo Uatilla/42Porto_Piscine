@@ -31,6 +31,9 @@
     //*ft_memmove(): Copies n bytes of data from a memory area (the data CAN overleap).
     void	*ft_memmove(void *dest, const void *src, size_t n);
 
+    //*ft_calloc(): Alocate some memory of size bytes and sets as 0.
+    void    *ft_calloc(size_t nmemb, size_t size);
+
     //ft_isalnum(): Alphanumeric character test.
     int ft_isalnum(int c);
 
