@@ -70,13 +70,19 @@
     //ft_strlcat(): Concatenate a string src to a dest and guarantee the null terminator, return the size of src + dest.
     size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
-    //ft_strchr(): Returns the position in the memory that the first occurrence of a character happened."
+    //*ft_strchr(): Returns the position in the memory that the first occurrence of a character happened."
     char    *ft_strchr(const char *s, int c);
 
-    //ft_strrchr(): Returns the position in the memory that the last occurrence of a character happened."
+    //*ft_strrchr(): Returns the position in the memory that the last occurrence of a character happened."
     char    *ft_strrchr(const char *s, int c);
 
-    //ft_strnstr(): Returns the position of the first occurrence of a string, if it didn't find it returns NULL, if the little string isn't find it returns the big string. 
+    //*ft_strnstr(): Returns the position of the first occurrence of a string, if it didn't find it returns NULL, if the little string isn't find it returns the big string. 
     char	*ft_strnstr(const char *big, const char *little, size_t len);
+    
+    //*ft_substr(): Returns a pointer to a substring that has size len. 
+    char    *ft_substr(char const *s, unsigned int start, size_t len);
+
+    //*ft_strjoin(): Concatenate two strings and returns a pointer to the new bigger string.
+    char    *ft_strjoin(char const *s1, char const *s2);
 
 #endif

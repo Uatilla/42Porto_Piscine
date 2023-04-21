@@ -190,5 +190,10 @@ int main()
     printf("strdup: %s [%p]\n", ptr_string, &ptr_string);
     printf("ft_strdup: %s [%p]\n", ptr_string2, &ptr_string2);
     printf("-----------------------------------\n");
+    //ft_strjoin
+    char    *str_strjoin1 = "Uatilla";
+    char    *str_strjoin2 = "Viana";
+    printf("ft_strjoin: %s\n", ft_strjoin(str_strjoin1, str_strjoin2));
+    printf("-----------------------------------\n");
     return 0;
 }
