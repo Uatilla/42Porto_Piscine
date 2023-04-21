@@ -54,3 +54,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(result, s1 + start_index, end_index - start_index + 2);
 	return (result);
 }
+
+int main()
+{
+    char    *str_strtrim = "#42#Porto#";
+    char    *rem = "#";
+    ft_strtrim(str_strtrim, rem);
+    return (0);
+}

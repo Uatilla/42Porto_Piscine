@@ -1,0 +1,30 @@
+set[j]
+
+s1[i]
+
+
+
+
+int i;
+int j;
+
+i = 0;
+j = 0;
+
+while (set[j] != '\0')
+{
+    while (s1[i] != '\0')
+    {
+        if (s1[i] == set[j])
+            i++;
+            j = 0;
+        else
+            j++;
+    }
+}
+
+
+
+
+set abc
+s1  ba0000
