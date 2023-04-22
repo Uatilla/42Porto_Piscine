@@ -190,6 +190,13 @@ int main()
     printf("strdup: %s [%p]\n", ptr_string, &ptr_string);
     printf("ft_strdup: %s [%p]\n", ptr_string2, &ptr_string2);
     printf("-----------------------------------\n");
+    //ft_substr
+    char    *str_substr = "42Porto";
+	char    *ptr_substr;
+	ptr_substr = ft_substr(str_substr, 2, 4);
+    printf("%s\n", str_substr);
+	printf("ft_substr: %s\n", ptr_substr);
+    printf("-----------------------------------\n");
     //ft_strjoin
     char    *str_strjoin1 = "Uatilla";
     char    *str_strjoin2 = "Viana";
