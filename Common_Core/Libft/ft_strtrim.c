@@ -10,60 +10,74 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-char    *ft_strtrim(char const *s1, char const *set)
+static	int	get_start_index(char const *s1, char const *set)
 {
-    size_t i;
-    size_t j;
-    size_t start_index;
-    size_t end_index;
-    size_t size;
-    char *ptr_strtrim;
+	size_t	i;
+	size_t	j;
+	size_t	start_index;
 
-    i = 0;
-    j = 0;
-    start_index = 0;
-    while (s1[i] != '\0' || i < ft_strlen(set))
-    {
-        while (set[j] != '\0')
-        {
-            if (set[j] == s1[i])
-            {
-                start_index++;
-                i++;               
-                j = 0;
-            }
-            else
-            {
-                j++;
-            }
-        }
-        
-        i++;
-    }
-    end_index = ft_strlen(s1) - 1;
-    i = 0;
-    j = 0;
-    while (i < ft_strlen(set))
-    {
-        while (set[j] != '\0')
-        {
-            if (set[j] == s1[end_index])
-            {
-                j = 0;
-                end_index--;
-                i++;
-            }
-            else
-            {
-                j++;
-            }
-        }
-        i++;
-    }
-    size = end_index - start_index + 1;
-    ptr_strtrim = ft_substr(s1, start_index, size);
-    return (ptr_strtrim);
+	i = 0;
+	j = 0;
+	start_index = 0;
+	while (s1[i] != '\0' || i < ft_strlen(set))
+	{
+		while (set[j] != '\0')
+		{
+			if (set[j] == s1[i])
+			{
+				start_index++;
+				i++;
+				j = 0;
+			}
+			else
+			{
+				j++;
+			}
+		}
+		i++;
+	}
+	return (start_index);
+}
+
+static	int	get_end_index(char const *s1, char const *set)
+{
+	size_t	i;
+	size_t	j;
+	size_t	end_index;
+
+	i = 0;
+	j = 0;
+	end_index = ft_strlen(s1) - 1;
+	while (i < ft_strlen(set))
+	{
+		while (set[j] != '\0')
+		{
+			if (set[j] == s1[end_index])
+			{
+				j = 0;
+				end_index--;
+				i++;
+			}
+			else
+			{
+				j++;
+			}
+		}
+		i++;
+	}	
+	return (end_index);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t		start_index;
+	size_t		end_index;
+	char		*ptr_strtrim;
+
+	start_index = get_start_index(s1, set);
+	end_index = get_end_index(s1, set);
+	ptr_strtrim = ft_substr(s1, start_index, (end_index - start_index + 1));
+	return (ptr_strtrim);
 }

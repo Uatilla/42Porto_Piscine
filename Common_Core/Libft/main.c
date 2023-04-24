@@ -206,7 +206,7 @@ int main()
     printf("-----------------------------------\n");
     //ft_strtrim
     char    *str_strtrim = "era uma era vez era";  
-    char    *rem = "era";
+    char    *rem = "";
     printf("string_orig: %s\n",str_strtrim);
     printf("set_rem: %s\n",rem);
     printf("string_after: %s\n",ft_strtrim(str_strtrim, rem));
