@@ -200,7 +200,17 @@ int main()
     //ft_strjoin
     char    *str_strjoin1 = "Uatilla";
     char    *str_strjoin2 = "Viana";
+    printf("String 1: Uatilla\n");
+    printf("String 2: Viana\n");
     printf("ft_strjoin: %s\n", ft_strjoin(str_strjoin1, str_strjoin2));
+    printf("-----------------------------------\n");
+    //ft_strtrim
+    char    *str_strtrim = "era uma era vez era";  
+    char    *rem = "era";
+    printf("string_orig: %s\n",str_strtrim);
+    printf("set_rem: %s\n",rem);
+    printf("string_after: %s\n",ft_strtrim(str_strtrim, rem));
+    printf("size: %ld\n",ft_strlen(ft_strtrim(str_strtrim, rem)));
     printf("-----------------------------------\n");
     return 0;
 }

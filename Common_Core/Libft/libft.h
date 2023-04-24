@@ -85,4 +85,7 @@
     //*ft_strjoin(): Concatenate two strings and returns a pointer to the new bigger string.
     char    *ft_strjoin(char const *s1, char const *s2);
 
+    //*ft_strtrim(): Returns a pointer to a new string that has the characters of the set removed from the beginning and the end of the string.
+    char    *ft_strtrim(char const *s1, char const *set);
+
 #endif
