@@ -231,5 +231,15 @@ int main()
     string_ft_itoa = ft_itoa(num);
     printf("ft_itoa: %s\n",string_ft_itoa);
     printf("-----------------------------------\n");
+    //ft_strncmp
+    char *s1_strncmp;
+	char *s2_strncmp;
+    int n;
+	s1_strncmp = "hola";
+	s2_strncmp = "hola";
+	n = 0;
+	printf("strncmp: %d\n", strncmp(s1_strncmp, s2_strncmp, n));
+	printf("ft_strncmp: %d\n", ft_strncmp(s1_strncmp, s2_strncmp, n));
+    printf("-----------------------------------\n");
     return 0;
 }

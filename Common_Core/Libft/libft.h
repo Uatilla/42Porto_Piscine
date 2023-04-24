@@ -38,6 +38,9 @@
     //*ft_strdup(): Make some memory with malloc() and duplicates a string to there.
     void	*ft_strdup(const char *s);
 
+    //*ft_memchr(): Returns the position in the memory that the first occurrence of a character happened.
+    void	*ft_memchr(const void *s, int c, size_t n);
+
     //ft_isalnum(): Alphanumeric character test.
     int ft_isalnum(int c);
 
@@ -61,6 +64,12 @@
 
     //ft_atoi(): Converts the initial portion of the string in int.
     int ft_atoi(const char *nptr);
+
+    //ft_strncmp(): Compares two strings and returns the difference between the first different character.
+    int	ft_strncmp(const char *s1, const char *s2, size_t n);
+
+    //ft_memcmp(): Compares two memory areas and returns the difference between the first different character.
+    int	ft_memcmp(const void *s1, const void *s2, size_t n);
     
     //ft_strlen(): Measure the size of a string without the NULL character ('\0').
     size_t	ft_strlen(const char *s);

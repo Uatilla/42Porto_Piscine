@@ -53,5 +53,13 @@ fclean: clean
 re: fclean all
 #removes everything with the fclean command and creates everything again will all command.
 
-.PHONY: all clean fclean re
+author: 
+	echo 'jhogonca'
+
+norm:
+	echo 'Running Norminette'
+	norminette -R CheckForbiddenSourceHeader *.c
+	norminette -R CheckDefine *.h
+
+.PHONY: clean fclean norm all bonus re author
 #declaring these targets as .PHONY will force the command even if it's some subdirectory or file with it's name.
