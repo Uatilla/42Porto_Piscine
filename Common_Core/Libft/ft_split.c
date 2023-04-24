@@ -58,7 +58,7 @@ static	void	ft_fill_split(char const *s, char c, char **ptr_split)
 
 	i = 0;
 	j = 0;
-	while (s[i] != '\0')
+	while (s[i])
 	{
 		if (s[i] == c)
 			i++;
