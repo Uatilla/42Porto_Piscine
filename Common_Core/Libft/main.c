@@ -212,5 +212,18 @@ int main()
     printf("string_after: %s\n",ft_strtrim(str_strtrim, rem));
     printf("size: %ld\n",ft_strlen(ft_strtrim(str_strtrim, rem)));
     printf("-----------------------------------\n");
+     //ft_split
+    char    *str_split = "#Ola#Mundo#Como#vai###";
+    char    sep = '#';
+    char    **ptr_split2;
+    i = 0;
+    ptr_split2 = ft_split(str_split, sep);
+    while (ptr_split2[i] != NULL)
+    {
+        printf("ptr_split[%d]: %s\n", i, ptr_split2[i]);
+        i++;
+    }
+    printf("ptr_split[%d]: %s\n", i, ptr_split2[i]);
+    printf("-----------------------------------\n");
     return 0;
 }

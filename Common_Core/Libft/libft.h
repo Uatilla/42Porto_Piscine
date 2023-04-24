@@ -88,4 +88,7 @@
     //*ft_strtrim(): Returns a pointer to a new string that has the characters of the set removed from the beginning and the end of the string.
     char    *ft_strtrim(char const *s1, char const *set);
 
+    //**ft_split(): Returns a pointer to an array of strings that are obtained by splitting the string s using the character c as a delimiter.
+    char **ft_split(char const *s, char c);
+
 #endif
