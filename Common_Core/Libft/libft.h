@@ -18,6 +18,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <stddef.h>
 
     //ft_bzero(): Writes zeroes to a byte string.
 	void	ft_bzero(void *s, size_t n);
@@ -90,5 +91,8 @@
 
     //**ft_split(): Returns a pointer to an array of strings that are obtained by splitting the string s using the character c as a delimiter.
     char **ft_split(char const *s, char c);
+
+    //*ft_itoa(): Returns a pointer to a new string that represents the integer received as an argument.
+    char    *ft_itoa(int n);
 
 #endif

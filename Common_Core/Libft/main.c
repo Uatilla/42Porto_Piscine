@@ -212,7 +212,7 @@ int main()
     printf("string_after: %s\n",ft_strtrim(str_strtrim, rem));
     printf("size: %ld\n",ft_strlen(ft_strtrim(str_strtrim, rem)));
     printf("-----------------------------------\n");
-     //ft_split
+    //ft_split
     char    *str_split = "#Ola#Mundo#Como#vai###";
     char    sep = '#';
     char    **ptr_split2;
@@ -224,6 +224,12 @@ int main()
         i++;
     }
     printf("ptr_split[%d]: %s\n", i, ptr_split2[i]);
+    printf("-----------------------------------\n");
+    //ft_itoa
+    num = -2147483648;
+    char    *string_ft_itoa;
+    string_ft_itoa = ft_itoa(num);
+    printf("ft_itoa: %s\n",string_ft_itoa);
     printf("-----------------------------------\n");
     return 0;
 }
