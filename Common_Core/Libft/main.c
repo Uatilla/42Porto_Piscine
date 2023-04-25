@@ -213,17 +213,20 @@ int main()
     printf("size: %ld\n",ft_strlen(ft_strtrim(str_strtrim, rem)));
     printf("-----------------------------------\n");
     //ft_split
-    char    *str_split = "#Ola#Mundo#Como#vai###";
-    char    sep = '#';
-    char    **ptr_split2;
-    i = 0;
-    ptr_split2 = ft_split(str_split, sep);
-    while (ptr_split2[i] != NULL)
-    {
-        printf("ptr_split[%d]: %s\n", i, ptr_split2[i]);
-        i++;
-    }
-    printf("ptr_split[%d]: %s\n", i, ptr_split2[i]);
+    char **res = ft_split("Lioi", 'i');
+
+	if (!res)
+	{
+		printf("Error: ft_split() returned NULL\n");
+		return (1);
+	}
+	for (i = 0; res[i] != 0; i++)
+	{
+		printf("String[%d] %s\n", i, res[i]);
+		free(res[i]);
+	}
+    printf("String[%d] %s\n", i, res[i]);
+	free(res);
     printf("-----------------------------------\n");
     //ft_itoa
     num = -2147483648;

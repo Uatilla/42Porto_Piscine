@@ -68,9 +68,8 @@ static	void	ft_fill_split(char const *s, char c, char **ptr_split)
 			i = ft_strlen_mod(s, c, i);
 			ptr_split[j] = ft_substr(s, start_index, (i - start_index + 1));
 			j++;
-		}
-		else
 			i++;
+		}
 	}
 	ptr_split[j] = NULL;
 }
@@ -79,7 +78,7 @@ char	**ft_split(char const *s, char c)
 {
 	char	**ptr_split;
 
-	ptr_split = malloc (sizeof(char *) * (ft_count_words(s, c)));
+	ptr_split = malloc (sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (!ptr_split)
 		return (NULL);
 	ft_fill_split(s, c, ptr_split);
