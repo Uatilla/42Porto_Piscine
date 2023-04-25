@@ -37,6 +37,8 @@ static	char	*inp_itoa(long int num, int len, char *str_ft_itoa)
 	int	i;
 
 	i = 1;
+	if (num == 0)
+		str_ft_itoa[0] = '0';
 	while (num > 0)
 	{
 		str_ft_itoa[len - i] = num % 10 + '0';
@@ -57,7 +59,6 @@ char	*ft_itoa(int n)
 	str_ft_itoa = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str_ft_itoa)
 		return (NULL);
-	str_ft_itoa[len] = '\0';
 	if (n < 0)
 	{
 		num = (long)n * (-1);
@@ -66,5 +67,6 @@ char	*ft_itoa(int n)
 	else
 		num = n;
 	str_ft_itoa2 = inp_itoa(num, len, str_ft_itoa);
+	str_ft_itoa2[len] = '\0';
 	return (str_ft_itoa2);
 }
