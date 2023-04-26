@@ -44,6 +44,9 @@
     //*ft_striteri(): Applies the function f to each character of the string passed as argument, and passing its index as first argument. Each character is passed by address to f to be modified if necessary.
     void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 
+    //ft_putchar_fd(): Outputs the character c to the given file descriptor.
+    void    ft_putchar_fd(char c, int fd);
+
     //ft_isalnum(): Alphanumeric character test.
     int ft_isalnum(int c);
 
