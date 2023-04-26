@@ -41,6 +41,9 @@
     //*ft_memchr(): Returns the position in the memory that the first occurrence of a character happened.
     void	*ft_memchr(const void *s, int c, size_t n);
 
+    //*ft_striteri(): Applies the function f to each character of the string passed as argument, and passing its index as first argument. Each character is passed by address to f to be modified if necessary.
+    void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+
     //ft_isalnum(): Alphanumeric character test.
     int ft_isalnum(int c);
 

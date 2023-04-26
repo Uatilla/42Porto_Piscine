@@ -22,6 +22,12 @@ char	f(unsigned int i, char c)
 	return (c);
 }
 
+//print_char() function in use for ft_striteri() function.
+void	print_char(unsigned int index, char *c)
+{
+	printf("index: %d, char: %c\n", index, *c);
+}
+
 int main() 
 {
     int num;
@@ -257,7 +263,11 @@ int main()
     //ft_strmapi
     char	*str_strmapi = "Hello";
 	char	*ptr_strmapi = ft_strmapi(str_strmapi, f);
-	printf("strmapi: %s\n", ptr_strmapi);
+	printf("ft_strmapi: %s\n", ptr_strmapi);
+    printf("-----------------------------------\n");
+    //ft_striteri
+    char    str_striteri[13] = "Hello!";
+    ft_striteri(str_striteri, &print_char);
     printf("-----------------------------------\n");
     return 0;
 }
