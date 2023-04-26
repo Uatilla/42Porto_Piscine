@@ -19,8 +19,8 @@ SRCS = ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint
 		ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c\
 		ft_tolower.c ft_toupper.c ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c\
 		ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c\
-		ft_putchar_fd.c\
-		#ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c 
+		ft_putchar_fd.c ft_putstr_fd.c\
+		#ft_putendl_fd.c ft_putnbr_fd.c 
 		#Sources (files) to be compiled by this script.
 		
 OBJS = $(SRCS:.c=.o) #Sets a list of SRC files (.c) changed to (.o).

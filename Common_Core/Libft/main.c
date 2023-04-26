@@ -269,5 +269,17 @@ int main()
     char    str_striteri[13] = "Hello!";
     ft_striteri(str_striteri, &print_char);
     printf("-----------------------------------\n");
+    //ft_putchar_fd
+    printf("ft_putchar_fd:\n");
+    c = 'a';
+    ft_putchar_fd(c, 1);
+    write(1, "\n", 1);
+    printf("-----------------------------------\n");
+    //ft_putstr_fd
+    printf("ft_putstr_fd:\n");
+    char    *string_putstr_fd = "Hello";
+    ft_putstr_fd(string_putstr_fd, 1);
+    write(1, "\n", 1);
+    printf("-----------------------------------\n");
     return 0;
 }
