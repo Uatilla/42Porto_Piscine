@@ -104,4 +104,7 @@
     //*ft_itoa(): Returns a pointer to a new string that represents the integer received as an argument.
     char    *ft_itoa(int n);
 
+    //*ft_strmapi(): Applies the function f to each character of the string s to create a new string resulting from successive applications of f.
+    char	*ft_strmapi(char const *s, char (*f) (unsigned int, char));
+
 #endif

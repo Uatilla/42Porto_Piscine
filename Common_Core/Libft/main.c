@@ -12,6 +12,16 @@
 
 #include "libft.h"
 
+//f() function in use for ft_strmapi() function.
+char	f(unsigned int i, char c)
+{
+	if (i % 2 == 0 && c >= 'a' && c <= 'z')
+		return (c - 32);
+	else if (i % 2 != 0 && c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
+}
+
 int main() 
 {
     int num;
@@ -243,6 +253,11 @@ int main()
 	n = 0;
 	printf("strncmp: %d\n", strncmp(s1_strncmp, s2_strncmp, n));
 	printf("ft_strncmp: %d\n", ft_strncmp(s1_strncmp, s2_strncmp, n));
+    printf("-----------------------------------\n");
+    //ft_strmapi
+    char	*str_strmapi = "Hello";
+	char	*ptr_strmapi = ft_strmapi(str_strmapi, f);
+	printf("strmapi: %s\n", ptr_strmapi);
     printf("-----------------------------------\n");
     return 0;
 }
