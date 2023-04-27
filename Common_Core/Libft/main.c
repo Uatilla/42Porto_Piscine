@@ -286,5 +286,11 @@ int main()
     char    *string_putendl_fd = "Hello";
     ft_putendl_fd(string_putendl_fd, 1);
     printf("-----------------------------------\n");
+    //ft_putnbr_fd
+    int n_ft_putnbr_fd = 0;
+    printf("ft_putnbr_fd: \n");
+    ft_putnbr_fd(n_ft_putnbr_fd, 1);
+    write(1, "\n", 1);
+    printf("-----------------------------------\n");
     return 0;
 }
