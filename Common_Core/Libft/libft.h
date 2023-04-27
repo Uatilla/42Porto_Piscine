@@ -49,6 +49,9 @@
 
     //ft_putstr_fd(): Outputs the string s to the given file descriptor.
     void    ft_putstr_fd(char *s, int fd);
+
+    //ft_putendl_fd(): Outputs the string s to the given file descriptor, followed by a newline.
+    void	ft_putendl_fd(char *s, int fd);
     
     //ft_isalnum(): Alphanumeric character test.
     int ft_isalnum(int c);
