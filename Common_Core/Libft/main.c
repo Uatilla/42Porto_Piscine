@@ -229,7 +229,7 @@ int main()
     printf("size: %ld\n",ft_strlen(ft_strtrim(str_strtrim, rem)));
     printf("-----------------------------------\n");
     //ft_split
-    char **res = ft_split("Lioi", 'i');
+    char **res = ft_split("", '8');
 
 	if (!res)
 	{

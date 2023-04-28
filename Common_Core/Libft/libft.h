@@ -50,7 +50,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 //*ft_strdup(): Make some memory with malloc() 
 //and duplicates a string to there.
-void	*ft_strdup(const char *s);
+char	*ft_strdup(const char *s);
 //ft_strncmp(): Compares two strings and returns the difference between 
 //the first different character.
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
