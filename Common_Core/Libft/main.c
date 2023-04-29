@@ -292,5 +292,12 @@ int main()
     ft_putnbr_fd(n_ft_putnbr_fd, 1);
     write(1, "\n", 1);
     printf("-----------------------------------\n");
+    //ft_lstnew
+    t_list *novo;
+    char *str_ft_lstnew;
+    str_ft_lstnew = "Hello World!";
+    novo = ft_lstnew(str_ft_lstnew);
+    printf("ft_lstnew: %s\n", (char *)novo->content);
+    printf("-----------------------------------\n");
     return 0;
 }

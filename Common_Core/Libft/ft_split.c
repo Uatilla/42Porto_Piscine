@@ -77,7 +77,7 @@ static	void	ft_fill_split(char const *s, char c, char **ptr_split)
 char	**ft_split(char const *s, char c)
 {
 	char	**ptr_split;
-	
+
 	if (!s)
 		return (NULL);
 	ptr_split = malloc (sizeof(char *) * (ft_count_words(s, c) + 1));

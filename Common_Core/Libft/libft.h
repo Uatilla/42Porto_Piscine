@@ -25,7 +25,7 @@
 /*_________________________________[FUNCTIONS]_______________________________*/
 /*-----------------------------*Mandatory Part I*----------------------------*/
 
-//MEMORY MANIPULATION:
+//MEMORY MANIPULATION:****************************************************
 
 //ft_bzero(): Writes zeroes to a byte string.
 void	ft_bzero(void *s, size_t n);
@@ -44,7 +44,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 //between the first different character.
 int	ft_memcmp(const void *s1, const void *s2, size_t n);
 
-//STRING MANIPULATION:
+//STRING MANIPULATION:****************************************************
 
 //*ft_calloc(): Alocate some memory of size bytes and sets as 0.
 void	*ft_calloc(size_t nmemb, size_t size);
@@ -74,7 +74,7 @@ char	*ft_strrchr(const char *s, int c);
 //string isn't find it returns the big string. 
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 
-//CHARACTER CLASSIFICATION:
+//CHARACTER CLASSIFICATION:***********************************************
 
 //ft_isalnum(): Alphanumeric character test.
 int	ft_isalnum(int c);
@@ -93,7 +93,7 @@ int	ft_toupper(int c);
 //uppercase else returns the character without changes.
 int	ft_tolower(int c);
 
-//STRING TO INTEGER CONVERSION:
+//STRING TO INTEGER CONVERSION:*******************************************
 
 //ft_atoi(): Converts the initial portion of the string in int.
 int	ft_atoi(const char *nptr);
@@ -125,7 +125,7 @@ char	*ft_strmapi(char const *s, char (*f) (unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 //ft_putchar_fd(): Outputs the character c to the given file descriptor.
 
-// FILE DESCRIPTOR OUTPUT: 
+// FILE DESCRIPTOR OUTPUT:************************************************* 
 
 void	ft_putchar_fd(char c, int fd);
 //ft_putstr_fd(): Outputs the string s to the given file descriptor.
@@ -136,10 +136,22 @@ void	ft_putendl_fd(char *s, int fd);
 //ft_putnbr_fd(): Outputs the integer n to the given file descriptor.
 void	ft_putnbr_fd(int n, int fd);
 
-//INTEGER TO STRING CONVERSION:
+//INTEGER TO STRING CONVERSION:*******************************************
 
 //*ft_itoa(): Returns a pointer to a new string that 
 //represents the integer received as an argument.
 char	*ft_itoa(int n);
 
+/*___________________________________[BONUS]_________________________________*/
+
+//LINKED LIST:************************************************************
+
+typedef struct s_list
+{
+    void    *content;
+    struct  s_list   *next;
+ } t_list;
+
+//*ft_lstnew(): Allocates (with malloc(3)) and returns a new element.
+t_list *ft_lstnew(void *content);
 #endif
