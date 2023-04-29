@@ -154,4 +154,6 @@ typedef struct s_list
 
 //*ft_lstnew(): Allocates (with malloc(3)) and returns a new element.
 t_list *ft_lstnew(void *content);
+//*ft_lstadd_front(): Adds the element ’new’ at the beginning of the list.
+t_list ft_lstadd_front(t_list **lst, t_list *new);
 #endif

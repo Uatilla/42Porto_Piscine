@@ -299,5 +299,21 @@ int main()
     novo = ft_lstnew(str_ft_lstnew);
     printf("ft_lstnew: %s\n", (char *)novo->content);
     printf("-----------------------------------\n");
+    //ft_lstadd_front
+    t_list *head_lstadd_f;
+    t_list *new_lstadd_f;
+    head_lstadd_f = malloc(sizeof(t_list));
+    head_lstadd_f->content = NULL;
+    head_lstadd_f->next = NULL;
+    new_lstadd_f = malloc(sizeof(t_list));
+    new_lstadd_f->content = "new";
+    new_lstadd_f->next = NULL;
+    head_lstadd_f->next = new_lstadd_f;
+    printf("Head: %s next: %p\n", (char *)head_lstadd_f->content, head_lstadd_f->next);
+    printf("New: %s next: %p\n", (char *)new_lstadd_f->content, new_lstadd_f->next);
+    ft_lstadd_front(&head_lstadd_f, new_lstadd_f);
+    printf("Head: %s next: %p\n", (char *)head_lstadd_f->content, head_lstadd_f->next);
+    printf("New: %s next: %p\n", (char *)new_lstadd_f->content, new_lstadd_f->next);
+    printf("-----------------------------------\n");
     return 0;
 }
