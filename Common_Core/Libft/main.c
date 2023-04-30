@@ -28,6 +28,12 @@ void	print_char(unsigned int index, char *c)
 	printf("index: %d, char: %c\n", index, *c);
 }
 
+//del() function in use for ft_lstdelone() function.
+void del(void *content)
+{
+    free(content);
+}
+
 int main() 
 {
     int num;
@@ -314,6 +320,56 @@ int main()
     ft_lstadd_front(&head_lstadd_f, new_lstadd_f);
     printf("Head: %s next: %p\n", (char *)head_lstadd_f->content, head_lstadd_f->next);
     printf("New: %s next: %p\n", (char *)new_lstadd_f->content, new_lstadd_f->next);
+    printf("-----------------------------------\n");
+    //ft_lstsize
+    t_list  *head_lstsize;
+    t_list  *new_lstsize;
+    t_list  *new_lstsize2;
+    //create the nodes
+    head_lstsize = ft_lstnew(NULL);
+    new_lstsize = ft_lstnew("World");
+    new_lstsize2 = ft_lstnew("!");
+    //link the nodes
+    head_lstsize->next = new_lstsize;
+    new_lstsize->next = new_lstsize2;
+    printf("ft_lstnew: %s\n", (char *)head_lstsize->content);
+    printf("ft_lstnew: %s\n", (char *)head_lstsize->next->content);
+    printf("ft_lstnew: %s\n", (char *)head_lstsize->next->next->content);
+    printf("ft_lstsize: %d\n",ft_lstsize(head_lstsize));
+    printf("-----------------------------------\n");
+    //ft_lstlast
+    t_list *head_lstlast;
+    t_list *second_lstlast;
+    t_list *third_lstlast;
+
+    head_lstlast = ft_lstnew("head");
+    second_lstlast = ft_lstnew("second");
+    third_lstlast = ft_lstnew("Hekki");
+    head_lstlast->next = second_lstlast;
+    second_lstlast->next = third_lstlast;
+    printf("ft_lstlast: %s\n", (char *)ft_lstlast(head_lstlast)->content);
+    printf("-----------------------------------\n");
+    //ft_lstadd_back
+    t_list *lst_addback;
+    t_list *new_addback;
+
+    lst_addback = ft_lstnew("1");
+    new_addback = ft_lstnew("2");
+    ft_lstadd_back(&lst_addback, new_addback);
+    printf("ft_lst_addback (1st): %s\n", (char *)lst_addback->content);
+    printf("ft_lst_addback (2nd): %s\n", (char *)lst_addback->next->content);
+    printf("-----------------------------------\n");
+    //ft_lstdelone
+    printf("ft_lstdelone\n");
+    printf("-----------------------------------\n");
+    //ft_lstclear
+    printf("ft_lstclear\n");
+    printf("-----------------------------------\n");
+    //ft_lstiter
+    printf("ft_lstiter\n");
+    printf("-----------------------------------\n");
+    //ft_lstiter
+    printf("ft_lstmap\n");
     printf("-----------------------------------\n");
     return 0;
 }

@@ -22,18 +22,19 @@ SRCS =  ft_strtrim.c     ft_atoi.c         ft_isprint.c    ft_strlen.c\
 		ft_putendl_fd.c  ft_putnbr_fd.c    ft_putchar_fd.c ft_putstr_fd.c\
 		ft_itoa.c        ft_split.c        ft_strjoin.c     ft_substr.c\
 		ft_strmapi.c     ft_striteri.c     ft_calloc.c      ft_strdup.c\
-		ft_memchr.c      ft_memcmp.c       ft_memset.c      ft_lstnew.c\
-		ft_lstadd_front.c
-		#ft_lstmap.c       ft_lstlast.c     ft_lstiter.c\
-		#ft_lstsize.c     ft_lstclear.c     ft_lstdelone.c\
-		#ft_lstadd_back.c \
-		#get_next_line.c
-		#Sources {files} to be compiled by this script.
+		ft_memchr.c      ft_memcmp.c       ft_memset.c      
+		
+BONUS = ft_lstnew.c       ft_lstsize.c      ft_lstlast.c      ft_lstiter.c\
+	ft_lstdelone.c    ft_lstclear.c     ft_lstmap.c\
+	ft_lstadd_front.c ft_lstadd_back.c 
+	#Sources {files} to be compiled by this script.
 
-OBJS := ${SRCS:.c=.o} 
+SRCS_O	:= ${SRCS:.c=.o}
+BONUS_O := ${BONUS:.c=.o}
+OBJS := ${SRCS_O} ${BONUS_O} 
 #Sets a list of SRC files {.c} changed to {.o}.
 	
-CC := gcc
+CC := cc
 RM := /bin/rm -rf 
 #command to forcing remove the directories without user confirmation.
 CFLAGS := -Wall -Wextra -Werror -I*.h
@@ -42,14 +43,19 @@ CFLAGS := -Wall -Wextra -Werror -I*.h
 AR := ar -rc #create a file with the object files {.o} - Sintax: "ar rc library.a ft_1.o ft2.o".
 RL := ar -s #create a index for the static library.
 
-${NAME}: ${OBJS}
-	${AR} ${NAME} ${OBJS}
+${NAME}: ${SRCS_O}
+	${AR} ${NAME} ${SRCS_O}
 	${RL} ${NAME}
-	echo 'libft is ready'
+	echo 'Mandatory Ok'
 #adding the OBJS inside the library.
 
 all: ${NAME} 
 #setting the default target if running make or make all will compile the source codes and create the libft.a {NAME}.
+
+bonus: ${BONUS_O}
+	${AR} ${NAME} ${BONUS_O}
+	${RL} ${NAME}
+	echo 'Bonus Ok'
 
 clean:
 	${RM} ${OBJS}

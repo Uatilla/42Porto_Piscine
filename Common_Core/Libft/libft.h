@@ -42,7 +42,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 //ft_memcmp(): Compares two memory areas and returns the difference 
 //between the first different character.
-int	ft_memcmp(const void *s1, const void *s2, size_t n);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 //STRING MANIPULATION:****************************************************
 
@@ -53,7 +53,7 @@ void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 //ft_strncmp(): Compares two strings and returns the difference between 
 //the first different character.
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 //ft_strlen(): Measure the size of a string without 
 //the NULL character ('\0').
 size_t	ft_strlen(const char *s);
@@ -77,26 +77,26 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 //CHARACTER CLASSIFICATION:***********************************************
 
 //ft_isalnum(): Alphanumeric character test.
-int	ft_isalnum(int c);
+int		ft_isalnum(int c);
 //ft_isalpha(): Alphabetic character test.
-int	ft_isalpha(int c);
+int		ft_isalpha(int c);
 //ft_isascii(): Ascii character test.
-int	ft_isascii(int c);
+int		ft_isascii(int c);
 //ft_isdigit(): Decimal digit character test.
-int	ft_isdigit(int c);
+int		ft_isdigit(int c);
 //ft_isprint(): Printing character test (space character inclusive).
-int	ft_isprint(int c);
+int		ft_isprint(int c);
 //ft_toupper(): Changes one character to uppercase if it's 
 //lowercase else returns the character without changes.
-int	ft_toupper(int c);
+int		ft_toupper(int c);
 //ft_tolower(): Changes one character to lowercase if it's 
 //uppercase else returns the character without changes.
-int	ft_tolower(int c);
+int		ft_tolower(int c);
 
 //STRING TO INTEGER CONVERSION:*******************************************
 
 //ft_atoi(): Converts the initial portion of the string in int.
-int	ft_atoi(const char *nptr);
+int		ft_atoi(const char *nptr);
 
 /*-----------------------------*Mandatory Part II*---------------------------*/
 
@@ -148,12 +148,35 @@ char	*ft_itoa(int n);
 
 typedef struct s_list
 {
-    void    *content;
-    struct  s_list   *next;
- } t_list;
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+
+//LIST CREATION AND MODIFICATION:*****************************************
 
 //*ft_lstnew(): Allocates (with malloc(3)) and returns a new element.
-t_list *ft_lstnew(void *content);
+t_list	*ft_lstnew(void *content);
 //*ft_lstadd_front(): Adds the element ’new’ at the beginning of the list.
-t_list ft_lstadd_front(t_list **lst, t_list *new);
+t_list	ft_lstadd_front(t_list **lst, t_list *new);
+//*ft_lstlast(): Returns the last element of the list.
+t_list	*ft_lstlast(t_list *lst);
+//*ft_lstadd_back(): Adds the element ’new’ at the end of the list.
+t_list	*ft_lstadd_back(t_list **lst, t_list *new);
+
+//LIST DELETION AND MEMORY MANAGEMENT:************************************
+
+//*ft_lstdelone(): Takes as a parameter an element and frees the memory
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+//*ft_lstclear(): Deletes and frees the given element and every successor
+void	ft_lstclear(t_list **lst, void (*del)(void	*));
+
+//LIST ITERATION AND MAPPING:*********************************************
+
+//ft_lstiter(): Iterates the list ’lst’ and applies the function
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+//*ft_lstsize(): Counts the number of elements in a list.
+int		ft_lstsize(t_list *lst);
+//*ft_lstmap(): Iterates the list ’lst’ and applies the function returning 
+//a new list
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 #endif
