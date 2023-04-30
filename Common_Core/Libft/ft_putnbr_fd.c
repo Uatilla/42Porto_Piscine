@@ -18,13 +18,13 @@ void	ft_putnbr_fd(int n, int fd)
 
 	if (n == -2147483648)
 	{
-		write(fd, "-2147483648", 11);
+		ft_putstr_fd("-2147483648", fd);
 		return ;
 	}
 	if (n < 0)
 	{
-		write(fd, "-", 1);
-		n = n * -1;
+		ft_putchar_fd('-', fd);
+		n = (unsigned int)(n * -1);
 	}
 	if (n >= 10)
 	{
