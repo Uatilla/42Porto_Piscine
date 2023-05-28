@@ -1,19 +1,75 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_func.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uviana-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/26 16:02:49 by uviana-a          #+#    #+#             */
-/*   Updated: 2023/05/26 16:02:53 by uviana-a         ###   ########.fr       */
+/*   Created: 2023/05/28 15:36:27 by uviana-a          #+#    #+#             */
+/*   Updated: 2023/05/28 15:36:28 by uviana-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
-#include <unistd.h>
+#include "printf.h"
+
+static	int	ft_get_len(long int n)
+{
+	long int	len;
+
+	len = 0;
+	if (n == 0)
+		return (1);
+	else if (n < 0)
+	{
+		n = n *(-1);
+		len++;
+	}
+	while (n > 0)
+	{
+		n = n / 10;
+		len++;
+	}
+	return (len);
+}
+
+static	char	*inp_itoa(long int num, int len, char *str_ft_itoa)
+{
+	int	i;
+
+	i = 1;
+	if (num == 0)
+		str_ft_itoa[0] = '0';
+	while (num > 0)
+	{
+		str_ft_itoa[len - i] = num % 10 + '0';
+		num = num / 10;
+		i++;
+	}
+	return (str_ft_itoa);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str_ft_itoa;
+	char	*str_ft_itoa2;
+	long	num;
+	int		len;
+
+	len = ft_get_len(n);
+	str_ft_itoa = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str_ft_itoa)
+		return (NULL);
+	if (n < 0)
+	{
+		num = (long)n * (-1);
+		str_ft_itoa[0] = '-';
+	}
+	else
+		num = n;
+	str_ft_itoa2 = inp_itoa(num, len, str_ft_itoa);
+	str_ft_itoa2[len] = '\0';
+	return (str_ft_itoa2);
+}
 
 int	ft_putstr(char *str)
 {
@@ -47,7 +103,7 @@ size_t	ft_strlen(const char *s)
 
 int	ft_hex_base(unsigned long decimal_address, int flag)
 {
-	int	letter_counter;
+	int		letter_counter;
 	char		*base;
 
 	letter_counter = 0;
@@ -67,54 +123,19 @@ int	ft_hex_base(unsigned long decimal_address, int flag)
 	return (letter_counter);
 }
 
-/*int	flag_conversor(char flag, va_list args)
+int	ft_ubase(unsigned int number)
 {
 	int	letter_counter;
 
 	letter_counter = 0;
-	if (flag == '%')
-		letter_counter += ft_putchar('%');
-	if (flag == 'c')
-		letter_counter += ft_putchar(va_arg(args, int));
-	if (flag == 's')
-		letter_counter += ft_putstr(va_arg(args, char *));
-	if (flag == 'p')
+	if (number >= 10)
 	{
-		letter_counter += ft_putstr("0x");
-		letter_counter += ft_hex_base(va_arg(args, unsigned long), 'x');
+		letter_counter += ft_ubase(number / 10);
+		letter_counter += ft_ubase(number % 10);
 	}
-	if (flag == 'x' || flag == 'X')
-		letter_counter += ft_hex_base(va_arg(args, unsigned long), flag);
 	else
 	{
-		//write(1,"a",1);
+		letter_counter = ft_putchar("0123456789"[number]);
 	}
 	return (letter_counter);
 }
-
-int	ft_printf(const char *str, ...)
-{
-	va_list	args;
-	const char	*ptr = str;
-	int	letter_counter;
-
-	letter_counter = 0;
-	va_start(args, str);
-	while (*ptr != '\0')
-	{
-		if (*ptr == '%')
-		{
-			ptr++;
-			letter_counter += flag_conversor(*ptr, args);
-		}
-		else
-		{
-			letter_counter += ft_putchar(*ptr);
-		}
-		ptr++;
-	}
-	va_end(args);
-	return (letter_counter);
-}*/
-
-
