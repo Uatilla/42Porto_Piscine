@@ -14,8 +14,7 @@
 
 int	flag_conversor(char flag, va_list args)
 {
-	int	letter_counter;
-	char	*int_converted;
+	int		letter_counter;
 
 	letter_counter = 0;
 	if (flag == '%')
@@ -29,6 +28,15 @@ int	flag_conversor(char flag, va_list args)
 		letter_counter += ft_putstr("0x");
 		letter_counter += ft_hex_base(va_arg(args, unsigned long), 'x');
 	}
+	return (letter_counter);
+}
+
+int	flag_conversor2(char flag, va_list args)
+{
+	int		letter_counter;
+	char	*int_converted;
+
+	letter_counter = 0;
 	if (flag == 'x' || flag == 'X')
 		letter_counter += ft_hex_base(va_arg(args, unsigned long), flag);
 	if (flag == 'd' || flag == 'i')
@@ -38,17 +46,15 @@ int	flag_conversor(char flag, va_list args)
 		letter_counter += ft_strlen(int_converted);
 	}
 	if (flag == 'u')
-	{
 		letter_counter += ft_ubase(va_arg(args, unsigned int));
-	}
 	return (letter_counter);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	va_list	args;
+	va_list		args;
 	const char	*ptr = str;
-	int		letter_counter;
+	int			letter_counter;
 
 	letter_counter = 0;
 	va_start(args, str);
@@ -57,12 +63,14 @@ int	ft_printf(const char *str, ...)
 		if (*ptr == '%')
 		{
 			ptr++;
-			letter_counter += flag_conversor(*ptr, args);
+			if (*ptr == '%' || *ptr == 'c' || *ptr == 's' || *ptr == 'p')
+				letter_counter += flag_conversor(*ptr, args);
+			if (*ptr == 'x' || *ptr == 'X' || *ptr == 'd' || *ptr == 'i'
+				|| *ptr == 'u')
+				letter_counter += flag_conversor2(*ptr, args);
 		}
 		else
-		{
 			letter_counter += ft_putchar(*ptr);
-		}
 		ptr++;
 	}
 	va_end(args);
