@@ -14,13 +14,13 @@
 
 int main()
 {
-    char content[1] = "a";
+    char content[255] = "a";//How can I remove the size of this char pointer?
 
     FILE *fpointer = fopen("test.txt", "r");
     //if (fgets(content, 2, fpointer) == NULL)
     //    return (0);
-    fgets(content, 1, fpointer);
-    printf("%s", content);
+    while (fgets(content, 3, fpointer) != NULL) //check why 2 shows only one character.
+        printf("%s", content);
     fclose(fpointer);
     return (0);
 }

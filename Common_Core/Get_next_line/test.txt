@@ -1,3 +1,2 @@
-xpto
-abc
-654987
+xptoabc
+654987p
