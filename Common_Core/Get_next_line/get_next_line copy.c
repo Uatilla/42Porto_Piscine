@@ -12,41 +12,25 @@
 
 #include <stdio.h>
 #include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
-
-char *get_next_line(int fd)
-{
-    int bytes_read;
-    char    *buffer;
-
-    if (BUFFER_SIZE < 0 || fd < 0)
-        return (NULL);
-    buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
-    bytes_read = read(fd, buffer, BUFFER_SIZE);
-    printf("line: %s bytes_read: %d\n", buffer, bytes_read);
-    return(buffer);
-}
 int main()
 {
-    int fd;
-    char    *file;
-    char    *line_content;
-
-    file = "test.txt";
-    fd = open(file, O_RDONLY);
-    //If the file was not opened properly.
-    if (fd == -1)
+    char content[6] = "a";//How can I remove the size of this char pointer?
+    int line_counter = 1;
+    printf("Size[%ld]\n", sizeof(content));
+    FILE *fpointer = fopen("test.txt", "r");
+    //check if opened the file
+    if (fpointer == NULL)
     {
-        printf("ERROR: the file couldn't be opened!\n");
-        return (1);
+        printf("Failed to open the file.\n");
+        return 1;
     }
-    line_content = get_next_line(fd);
-    printf("Content: %s", line_content);
-    close(fd);
+    while (fgets(content, sizeof(content), fpointer) != NULL)//how the function works in terms of main string and temp string.
+    {
+        printf("-%s|", content);
+        line_counter++;
+    }
+    printf("\n");
+    fclose(fpointer);
     return (0);
 }
