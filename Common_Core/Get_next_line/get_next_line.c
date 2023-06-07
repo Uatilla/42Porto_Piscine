@@ -23,19 +23,36 @@ char *get_next_line(int fd)
 {
     int bytes_read;
     char    *buffer;
+    //static char *line_cleaner;
 
     if (BUFFER_SIZE < 0 || fd < 0)
         return (NULL);
     buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
-    bytes_read = read(fd, buffer, BUFFER_SIZE);
-    printf("line: %s bytes_read: %d\n", buffer, bytes_read);
+    if (!buffer)
+        return (NULL);
+    bytes_read = 1;
+    while (bytes_read >= 1)
+    {
+        bytes_read = read(fd, buffer, BUFFER_SIZE);
+        printf("line: %s bytes_read: %d\n", buffer, bytes_read);
+        if (bytes_read == -1)
+            return (NULL);
+        //Clean the buffer
+        while (*buffer)
+        {
+            if (*buffer == "\n")
+                //Insert the content of buffer inside the line_cleaner variable until this position where it finds the "\n".
+            buffer++;
+        }
+        //insert the content of buffer inside line_cleaner variable.
+        //line_cleaner = strjoin(line_cleaner, buffer);
+    }
     return(buffer);
 }
 int main()
 {
     int fd;
     char    *file;
-    char    *line_content;
 
     file = "test.txt";
     fd = open(file, O_RDONLY);
@@ -45,8 +62,8 @@ int main()
         printf("ERROR: the file couldn't be opened!\n");
         return (1);
     }
-    line_content = get_next_line(fd);
-    printf("Content: %s", line_content);
+    get_next_line(fd);
+    //get_next_line(fd);
     close(fd);
     return (0);
 }
