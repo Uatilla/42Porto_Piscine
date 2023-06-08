@@ -19,35 +19,39 @@
 #  define BUFFER_SIZE 42
 # endif
 
+char *ft_get_content(int fd, char *line_cleaner)
+{
+    char    *buffer_content;
+    int     bytes_read;
+
+    buffer_content = malloc(sizeof(char) * BUFFER_SIZE + 1);
+    if (!buffer_content)
+        return (NULL);
+    bytes_read = 1;
+    while (bytes_read != 0)//In the first while loop the \n will be find and the while loop will not run?
+    {
+        bytes_read = read(fd, buffer_content, BUFFER_SIZE);
+        if (bytes_read == -1)
+        {
+            free (buffer_content);
+            free (line_cleaner);
+            return (NULL);
+        }
+        line_cleaner[bytes_read] = '\0';
+    }
+    free (buffer_content);
+    return (line_cleaner);
+}
+
 char *get_next_line(int fd)
 {
-    int bytes_read;
-    char    *buffer;
-    //static char *line_cleaner;
+    static char    *line_cleaner;
 
     if (BUFFER_SIZE < 0 || fd < 0)
         return (NULL);
-    buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
-    if (!buffer)
-        return (NULL);
-    bytes_read = 1;
-    while (bytes_read >= 1)
-    {
-        bytes_read = read(fd, buffer, BUFFER_SIZE);
-        printf("line: %s bytes_read: %d\n", buffer, bytes_read);
-        if (bytes_read == -1)
-            return (NULL);
-        //Clean the buffer
-        while (*buffer)
-        {
-            if (*buffer == "\n")
-                //Insert the content of buffer inside the line_cleaner variable until this position where it finds the "\n".
-            buffer++;
-        }
-        //insert the content of buffer inside line_cleaner variable.
-        //line_cleaner = strjoin(line_cleaner, buffer);
-    }
-    return(buffer);
+    line_cleaner = ft_get_content(fd, line_cleaner);
+    printf("line)cleaner: %s\n", line_cleaner);
+    return ("a");
 }
 int main()
 {
