@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uviana-a <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 20:52:31 by uviana-a          #+#    #+#             */
-/*   Updated: 2023/06/13 23:08:19 by uviana-a         ###   ########.fr       */
+/*   Updated: 2023/06/13 23:07:48 by uviana-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,15 +93,15 @@ static char	*ft_get_content(int fd, char *line_to_clean)
 
 char	*get_next_line(int fd)
 {
-	static char	*line_to_clean;
+	static char	*line_to_clean[FOPEN_MAX];
 	char		*line_cleaned;
 
-	if (BUFFER_SIZE < 0 || fd < 0)
+	if (BUFFER_SIZE < 0 || fd < 0 || fd > FOPEN_MAX)
 		return (NULL);
-	line_to_clean = ft_get_content(fd, line_to_clean);
-	if (!line_to_clean)
+	line_to_clean[fd] = ft_get_content(fd, line_to_clean[fd]);
+	if (!line_to_clean[fd])
 		return (NULL);
-	line_cleaned = ft_clean_line(line_to_clean);
-	line_to_clean = ft_get_remainder(line_to_clean);
+	line_cleaned = ft_clean_line(line_to_clean[fd]);
+	line_to_clean[fd] = ft_get_remainder(line_to_clean[fd]);
 	return (line_cleaned);
 }
