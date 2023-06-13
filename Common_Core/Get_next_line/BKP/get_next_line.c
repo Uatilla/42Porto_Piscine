@@ -35,6 +35,11 @@ char *ft_get_content(int fd, char *line_to_clean)
     if (!buffer_content)
         return (NULL);
     bytes_read = 1;
+    if (!line_to_clean)
+        {
+            line_to_clean = malloc(sizeof(char) * 1);
+            line_to_clean[0] = '\0';
+        }
 	while (!ft_strchr_mod(line_to_clean, '\n') && bytes_read != 0)
     {
         bytes_read = read(fd, buffer_content, BUFFER_SIZE);
@@ -44,13 +49,8 @@ char *ft_get_content(int fd, char *line_to_clean)
             free (line_to_clean);
             return (NULL);
         }
-        if (!line_to_clean && bytes_read == 0)
-		{
-			free(line_to_clean);
-			return (NULL);
-		}
-		buffer_content[bytes_read] = '\0';
-        line_to_clean = ft_strjoin_mod(line_to_clean, buffer_content);
+        buffer_content[bytes_read] = '\0';
+        line_to_clean = ft_strjoin(line_to_clean, buffer_content);
     }
     free (buffer_content);
     return (line_to_clean);
