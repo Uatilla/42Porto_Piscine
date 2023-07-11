@@ -1,6 +1,7 @@
 # 42Porto
 This repository is made to keep all my study files from 42 Porto.
-[![MasterHead](https://art.pixilart.com/sr27dd378bb9361.gif)](https://www.linkedin.com/in/uatilla/)
+
+[![MasterHead](https://media.tenor.com/Pw_OhqvmjssAAAAM/storm-seastorm.gif)](https://www.linkedin.com/in/uatilla/)
 
 ## Getting Started
 
