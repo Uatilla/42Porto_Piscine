@@ -15,22 +15,19 @@
 #include <stdlib.h>
 #include "list.h"
 
-int ascending(int a, int b)
+int	ascending(int a, int b)
 {
 	return (a <= b);
 }
 
 t_list	*sort_list(t_list *lst, int (*cmp)(int, int))
 {
-	int	swap;
-	t_list	*tmp;
+	int			swap;
+	t_list		*tmp;
 
 	tmp = lst;
-	/*IF THERE IS ONLY ONE ELEMENT OR NO ELEMENTS, IT DOESN'T GO
-	INSIDE THE WHILE LOOP.*/
 	while (lst->next != NULL)
 	{
-		//If *cmp returns 0, this means that the list is not sorted.
 		if (((*cmp)(lst->data, lst->next->data)) == 0)
 		{
 			swap = lst->data;
@@ -43,7 +40,6 @@ t_list	*sort_list(t_list *lst, int (*cmp)(int, int))
 	}
 	lst = tmp;
 	return (lst);
-	
 }
 /*
 int	main()
