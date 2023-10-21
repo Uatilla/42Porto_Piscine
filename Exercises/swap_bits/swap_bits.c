@@ -32,12 +32,13 @@
  {
      return ((octet >> 4) | (octet << 4));    //the code is sending the first four bits and getting the last four bit, keep with | the bit that are 1.
  }
- /*
+ 
  int main()
  {
      int num = 30;
-     ft_print_bits(num);
+     char letter = 'a';
+     ft_print_bits(letter);
      printf("\n--------------\n");
      ft_print_bits(ft_swap_bits(num));
      return (0);
- }*/
+ }
