@@ -39,6 +39,6 @@
      char letter = 'a';
      ft_print_bits(letter);
      printf("\n--------------\n");
-     ft_print_bits(ft_swap_bits(num));
+     //ft_print_bits(ft_swap_bits(num));
      return (0);
  }
