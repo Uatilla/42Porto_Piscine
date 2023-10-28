@@ -6,7 +6,7 @@
 #    By: jhogonca <jhogonca@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/13 17:09:17 by jhogonca          #+#    #+#              #
-#    Updated: 2023/07/13 17:09:17 by jhogonca         ###   ########.fr        #
+#    Updated: 2023/08/01 18:38:04 by uviana-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CLIENT = client
 SERVER = server
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 RM = rm -f
 
 CLIENT_SRCS = srcs/client.c srcs/utils.c
