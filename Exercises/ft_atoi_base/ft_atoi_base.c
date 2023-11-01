@@ -46,11 +46,14 @@ int	ft_atoi_base(const char *str, int int_base)
 	sign = 1;
 	i = 0;
 	result = 0;
+	/*1) Check if the number is negative"*/
 	if (str[i] == '-')
 	{
 		sign = -1;
 		i++;
 	}
+	/*2) Use function to_lower to convert any letter into lower case*/
+	/*3) Use function get_digit to return into the digit variable the value of the "convertion".*/
 	while ((digit = get_digit(to_lower(str[i]), int_base)) >= 0)
 	{
 		result = result * int_base;
@@ -58,19 +61,22 @@ int	ft_atoi_base(const char *str, int int_base)
 		++i;
 	}
 	return (result);
-	/*2) The str_converted is less or equal than the str_base
-		if Yes:
-			Return the str_converted value.
-		if No:
-			Do the calculation to convert it.*/
+	
 }
-
+/*
 int	main()
 {
 	char *year_based = "1996";
 	int	year_return;
+	int	i;
 
-	year_return = ft_atoi_base(year_based, 16);
-	printf("%d\n", year_return);
+	i = 16;
+	printf("BASE\n");
+	while (i <= 16)
+	{
+		year_return = ft_atoi_base(year_based, i);
+		printf("Base: [%d]: %d\n", i, year_return);
+		i++;
+	}
 	return (0);
-}
+}*/

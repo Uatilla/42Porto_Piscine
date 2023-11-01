@@ -16,8 +16,6 @@
 
 int	ft_size(int start, int end)
 {
-	int	i;
-	int	j;
 	int	counter;
 
 	counter = 0;
@@ -31,13 +29,11 @@ int	ft_size(int start, int end)
 	}
 	else
 	{
-		i = end;
-		j = start;
-	}
-	while (end <= start)
-	{
-		end--;
-		counter++;
+		while (end <= start)
+		{
+			end++;
+			counter++;
+		}
 	}
 	return (counter);
 }
@@ -66,7 +62,7 @@ int	*ft_range(int start, int end)
 	}
 	return (head);
 }
-/*
+
 int	main(void)
 {
 	int	num1;
@@ -74,8 +70,8 @@ int	main(void)
 	int	*arr;
 	int	i;
 
-	num1 = 0;
-	num2 = -3;
+	num1 = -3;
+	num2 = 0;
 	arr = ft_range(num1, num2);
 	i = 0;
 	while (i < ft_size(num1, num2))
@@ -84,4 +80,4 @@ int	main(void)
 		i++;
 	}
 	return (0);
-}*/
+}
