@@ -16,9 +16,16 @@ int		ft_atoi_base(const char *str, int str_base);
 
 int main(int argc, char **argv)
 {
+	int	i;
+
+	i = 1;
     if (argc == 3)
     {
-        printf("%d\n", ft_atoi_base(argv[1], atoi(argv[2])));
+        while (i <= 16)
+        {
+        	printf("Base [%d]: %d\n", i, ft_atoi_base(argv[1], i));
+    		i++;
+    	}
     }
     return (0);
 }
