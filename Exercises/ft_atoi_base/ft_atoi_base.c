@@ -29,7 +29,7 @@ int	get_digit(char digit, int base_goal)
 	else
 		max_digit = base_goal - 10 + 'a';
 	/*If the base_goal is bigger than 10 it means that the program should consider
-	letters too. In this case the rul to define max_digit change.
+	letters too. In this case the rule to define max_digit change.
 	
 	For example: base_goal = 11, then the max_digit will be 11 - 10 + 97: 
 	max_digit = 98.*/
@@ -91,7 +91,7 @@ int main(int argc, char **argv)
 {
 	int	i;
 
-	i = 1;
+	i = 16;
     if (argc == 3)
     {
         while (i <= 16)
