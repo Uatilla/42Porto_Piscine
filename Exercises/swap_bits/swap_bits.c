@@ -13,7 +13,7 @@
  #include <unistd.h>
  #include <stdio.h>
  
- void    ft_print_bits(unsigned char octet)
+ /*void    ft_print_bits(unsigned char octet)
  {
      unsigned char binary_pos;
  
@@ -24,21 +24,22 @@
              write(1, "1", 1);
          else
              write(1, "0", 1);
-         binary_pos >>= 1; //this means that the program is changing the current bit position to the next as 10000000 to 01000000, and so on.
+        binary_pos = binary_pos >> 1; //this means that the program is changing the current bit position to the next as 10000000 to 01000000, and so on.
      }
- }
+ }*/
  
  unsigned char   ft_swap_bits(unsigned char octet)
  {
      return ((octet >> 4) | (octet << 4));    //the code is sending the first four bits and getting the last four bit, keep with | the bit that are 1.
  }
  
+ /*
  int main()
  {
      int num = 30;
-     char letter = 'a';
+     char letter = 9;
      ft_print_bits(letter);
      printf("\n--------------\n");
      //ft_print_bits(ft_swap_bits(num));
      return (0);
- }
+ }*/
