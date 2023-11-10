@@ -10,43 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-int	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] && str[i] != '\0')
-		i++;
-	return (i);
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	void	*ptr_substr;
-	size_t	i;
-
-	if (ft_strlen(s) - start < len)
-		len = ft_strlen(s) - start;
-	if (ft_strlen(s) < start)
-		len = 0;
-	ptr_substr = malloc (sizeof(char) * (len + 1));
-	if (!ptr_substr)
-	{
-		return (NULL);
-	}
-	i = 0;
-	while (i < len)
-	{
-		((char *)ptr_substr)[i] = s[start + i];
-		i++;
-	}
-	((char *)ptr_substr)[i] = '\0';
-	return ((char *)ptr_substr);
-}
+#include "libft.h"
 
 static	int	ft_strlen_mod(const char *string, char search, int start_index)
 {
@@ -116,29 +80,9 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	/*1) Count how many words you will need and malloc a memory for this amount
-	plus the last element (NULL)*/
 	ptr_split = malloc (sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (!ptr_split)
 		return (NULL);
-	/*2) When filling the*/
 	ft_fill_split(s, c, ptr_split);
 	return (ptr_split);
-}
-
-int	main(int argc, char **argv)
-{
-	char **test;
-	char	sep;
-	int	i;
-
-	i = 0;
-	sep = 32;
-	test = ft_split(argv[1], sep);
-	while (test[i] && test[i] != (void *)0)
-	{
-		printf("[%d] %s\n", i, test[i]);
-		i++;
-	}
-	return (0);
 }
