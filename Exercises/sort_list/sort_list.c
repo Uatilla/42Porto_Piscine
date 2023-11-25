@@ -26,22 +26,23 @@ t_list	*sort_list(t_list *lst, int (*cmp)(int, int))
 	t_list		*tmp;
 
 	tmp = lst;
-	while (lst->next != NULL)
+	while (tmp->next != NULL)
 	{
-		if (((*cmp)(lst->data, lst->next->data)) == 0)
+		if (((*cmp)(tmp->data, tmp->next->data)) == 0)
+		if (asceding(tmp->data, tmp->next->data) == 0)
 		{
-			swap = lst->data;
-			lst->data = lst->next->data;
-			lst->next->data = swap;
-			lst = tmp;
+			swap = tmp->data;
+			tmp->data = tmp->next->data;
+			tmp->next->data = swap;
+			tmp = lst;
 		}
 		else
-			lst = lst->next;
+			tmp = tmp->next;
 	}
-	lst = tmp;
+	//lst = tmp;
 	return (lst);
 }
-/*
+
 int	main()
 {
 	t_list	*head;
@@ -73,4 +74,4 @@ int	main()
 		start = start->next;
 	}
 	return (0);
-}*/
+}
